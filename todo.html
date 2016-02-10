@@ -1,0 +1,101 @@
+<head>
+  <title>To-DO.</title>
+</head>
+
+<body>
+  <div class="container">
+  <div class="jumbotron">
+	<h1>To-DO.</h1>
+  <p>Don't ever forget To-DO.{{> loginButtons}}</p>
+
+
+
+
+
+			{{#if currentUser}}
+	    <form class="add-todo" id="a-task">
+        {{> thecalendar}}
+				<input type="text" name="text" placeholder="Type to add new tasks" />
+				<input type="text" id="place" name="location"  placeholder="Location" />
+				{{> add}}
+      </form>
+<div class="container">
+    <div class="row">
+						<ul>
+							<div class="col-md-3 heading">
+Status
+							</div>
+<div class="col-md-3 heading">
+Deadline
+							</div>
+<div class="col-md-3 heading">
+Task
+							</div>
+<div class="col-md-3 heading">
+Location
+							</div>
+      				{{#each tasks}}
+        			{{> task}}
+							{{/each}}
+    				</ul>
+    </div>
+</div>
+{{/if}}
+
+
+</div>
+</div>
+<footer>
+    Developed By Singam
+    </footer>
+</body>
+
+<template name="add">
+	<button type="submit" form="a-task" value="Submit">Add</button>
+</template>
+
+<template name="thecalendar">
+           <input type="button" class="datepicker" name="date" value="Date" placeholder="Deadline">
+</template>
+
+<template name="geolocation">
+           <input id="geocomplete" class="location" name="geocomplete" type="text" placeholder="Type in an address">
+</template>
+
+<template name="task">
+<div class="col-md-3">
+<li>
+		<ul>
+		<button class="done">&#x2714;
+		</button>
+		<button class="delete">&times;
+		</button>
+</ul>
+</li>
+</div>
+		<div class="col-md-3">
+<li>
+
+						<ul>
+							{{date}}
+						</ul>
+</li>
+        </div>
+        <div class="col-md-3">
+<li>
+
+						<ul>
+      				{{text}}
+    				</ul>
+</li>
+        </div>
+<div class="col-md-3">
+<li>
+
+						<ul>
+							{{location}}
+						</ul>
+</li>
+        </div>
+
+</template>
