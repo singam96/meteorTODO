@@ -4,7 +4,8 @@ Tasks = new Mongo.Collection("todo");
 if (Meteor.isClient) {
 
 	Template.thecalendar.rendered = function() {
-    this.$('.datepicker').datepicker();
+    //this.$('.datepicker').datepicker();
+		this.$('.datepicker').datetimepicker();
 }
 
 
@@ -16,7 +17,7 @@ if (Meteor.isClient) {
 
   Template.add.events({
     'click button': function () {
-			this.$('.datetimepicker').datetimepicker();
+			//this.$('.datepicker').datetimepicker();
     }
   });
 	  Template.body.events({
@@ -39,7 +40,7 @@ if (Meteor.isClient) {
       });
 			}
       // Clear form
-      event.target.date.value = "";
+      event.target.date.value = "Date";
 			event.target.text.value = "";
 			event.target.location.value = "";
     }
