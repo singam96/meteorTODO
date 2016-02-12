@@ -49,6 +49,9 @@ if (Meteor.isClient) {
 	  Template.body.events({
     "click .delete": function () {
       Tasks.remove(this._id);
+    },
+		"click .done": function () {
+      Tasks.remove(this._id);
     }
 });
   Accounts.ui.config({
